@@ -1,9 +1,9 @@
 import './style.css'
 
-export function CardGame() {
+export function CardGame(icon = 'logo-alura', alt = 'logo alura em pixel art') {
   return /*html*/ `
     <div class="card-game" >
-      <img src="images/logo-alura.svg" alt="Logo Da Alura em Pixel Arte">
+      <img src="images/${icon}.svg" alt="${alt}">
     </div>
   `;
 };
