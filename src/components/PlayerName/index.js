@@ -1,7 +1,7 @@
 import './style.css';
 
 export function PlayerName(contentName) {
-  return `
+  return /*html*/ `
     <p class="player-name">${contentName}</p>
   `
 }
