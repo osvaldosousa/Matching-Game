@@ -1,9 +1,10 @@
 .card-game {
-  width: 130px;
-  height: 160px;
+  width: var(--width);
+  height: var(--height);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--color-alura);
   border: solid var(--color-floral-white) 4px;
+  cursor: pointer;
 }
