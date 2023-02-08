@@ -8,9 +8,8 @@ export function CardFrontBack() {
   window.cardFlip.hiddenCard = (event) => {
     const cardsHidden = event.target.closest('.board-game');
     let filhos = cardsHidden.querySelectorAll('.-active');
-
+    
     setTimeout(() => {
-      console.log(event)
       filhos.forEach(element => {
         element.classList.toggle('-active');
       });
