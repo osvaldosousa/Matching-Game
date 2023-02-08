@@ -11,7 +11,7 @@ export function CardFrontBack(icon, altIcon) {
     
     setTimeout(() => {
       cardsHidden.forEach(element => {
-        element.classList.toggle('-active');
+        element.classList.remove('-active');
       });
     }, 1500);
   }
