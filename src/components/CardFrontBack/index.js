@@ -2,33 +2,27 @@ import './style.css';
 import { CardGame } from '../CardGame';
 
 export function CardFrontBack(icon, altIcon) {
-  let checkCards = 0;
   window.cardFlip = {};
 
-  window.cardFlip.hiddenCard = (event) => {
+  window.cardFlip.hiddenCard = () => {
     const cards = event.target.closest('.board-game');
-    let cardsHidden = cards.querySelectorAll('.-active');
-    
-    setTimeout(() => {
-      cardsHidden.forEach(element => {
-        element.classList.remove('-active');
-      });
-    }, 1500);
-  }
+    const cardsHidden = cards.querySelectorAll('.-active');
+
+    if(cardsHidden.length === 2) {
+      setTimeout(() => {
+        cardsHidden.forEach(element => {
+          element.classList.remove('-active');
+        });
+      }, 1200);
+    }
+  };
 
   window.cardFlip.handleClick = (event) => {
     const $origin = event.target;
     const cardToggle = $origin.closest('.card-flip');
-    checkCards++;
-
-    if(checkCards >= 2) {
-      checkCards = 0
-      cardToggle.classList.toggle('-active');
-      cardFlip.hiddenCard(event);
-      return
-    }
     cardToggle.classList.toggle('-active');
-  }
+    cardFlip.hiddenCard();
+  };
 
   return /* html */ `
     <article class="card-flip" onClick="cardFlip.handleClick(event)">
