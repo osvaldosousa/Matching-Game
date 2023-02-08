@@ -21,6 +21,7 @@ export function CardFrontBack() {
     coiso++;
 
     if(coiso >= 2) {
+      coiso = 0
       const cards = event
       cardToggle.classList.toggle('-active');
       cardFlip.hiddenCard(cards);
