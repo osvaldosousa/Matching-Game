@@ -1,0 +1,17 @@
+.bar-score {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50px;
+  height: 20px;
+  padding: 1px;
+  background-color: var(--color-floral-white);
+  border: solid 2px var(--color-fiery-rose);
+}
+
+.bar-score > .score {
+  height: 14px;
+  width: 14px;
+  background-color: var(--color-old-silver);
+}

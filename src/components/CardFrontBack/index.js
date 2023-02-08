@@ -6,13 +6,15 @@ export function CardFrontBack() {
   window.cardFlip = {};
 
   window.cardFlip.hiddenCard = (event) => {
+    const cardsHidden = event.target.closest('.board-game');
+    let filhos = cardsHidden.querySelectorAll('.-active');
+
     setTimeout(() => {
-      const cardsHidden = event.target.closest('.board-game');
-      let filhos = cardsHidden.querySelectorAll('.-active');
+      console.log(event)
       filhos.forEach(element => {
         element.classList.toggle('-active');
       });
-    }, 2000);
+    }, 1500);
   }
 
   window.cardFlip.handleClick = (event) => {
@@ -22,9 +24,8 @@ export function CardFrontBack() {
 
     if(coiso >= 2) {
       coiso = 0
-      const cards = event
       cardToggle.classList.toggle('-active');
-      cardFlip.hiddenCard(cards);
+      cardFlip.hiddenCard(event);
       return
     }
     cardToggle.classList.toggle('-active');
