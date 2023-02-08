@@ -1,16 +1,16 @@
 import './style.css';
 import { CardGame } from '../CardGame';
 
-export function CardFrontBack() {
-  let coiso = 0;
+export function CardFrontBack(icon, altIcon) {
+  let checkCards = 0;
   window.cardFlip = {};
 
   window.cardFlip.hiddenCard = (event) => {
-    const cardsHidden = event.target.closest('.board-game');
-    let filhos = cardsHidden.querySelectorAll('.-active');
+    const cards = event.target.closest('.board-game');
+    let cardsHidden = cards.querySelectorAll('.-active');
     
     setTimeout(() => {
-      filhos.forEach(element => {
+      cardsHidden.forEach(element => {
         element.classList.toggle('-active');
       });
     }, 1500);
@@ -19,10 +19,10 @@ export function CardFrontBack() {
   window.cardFlip.handleClick = (event) => {
     const $origin = event.target;
     const cardToggle = $origin.closest('.card-flip');
-    coiso++;
+    checkCards++;
 
-    if(coiso >= 2) {
-      coiso = 0
+    if(checkCards >= 2) {
+      checkCards = 0
       cardToggle.classList.toggle('-active');
       cardFlip.hiddenCard(event);
       return
@@ -36,8 +36,8 @@ export function CardFrontBack() {
         ${CardGame()}
       </div>
       <div class="card-back">
-        ${CardGame('javascript', 'LOgo')}
+        ${CardGame(icon, altIcon)}
       </div>
     </article>
-  `
+  `;
 }
