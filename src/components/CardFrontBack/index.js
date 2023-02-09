@@ -2,30 +2,36 @@ import './style.css';
 import { CardGame } from '../CardGame';
 
 export function CardFrontBack(icon, altIcon) {
-  window.cardFlip = {};
+  const flipCard = (event) => {
+    const $origin = event.target;
+    const cardToggle = $origin.closest('.card-flip');
+    cardToggle.classList.toggle('-active');
+  };
 
-  window.cardFlip.hiddenCard = () => {
-    const cards = event.target.closest('.board-game');
-    const cardsHidden = cards.querySelectorAll('.-active');
+  const hideCards = () => {
+    const cards = document.querySelector('.board-game');
+    const cardsActive = cards.querySelectorAll('.-active');
 
-    if(cardsHidden.length === 2) {
+    if(cardsActive.length === 2) {
+      
       setTimeout(() => {
-        cardsHidden.forEach(element => {
+        cardsActive.forEach(element => {
           element.classList.remove('-active');
         });
+        playerScore.scoreGame();
       }, 1200);
     }
   };
 
-  window.cardFlip.handleClick = (event) => {
-    const $origin = event.target;
-    const cardToggle = $origin.closest('.card-flip');
-    cardToggle.classList.toggle('-active');
-    cardFlip.hiddenCard();
+  window.cardsFlip = {};
+
+  window.cardsFlip.handleClick = (event) => {
+    flipCard(event)
+    hideCards();
   };
 
   return /* html */ `
-    <article class="card-flip" onClick="cardFlip.handleClick(event)">
+    <article class="card-flip" onClick="cardsFlip.handleClick(event)">
       <div class="card-front">
         ${CardGame()}
       </div>

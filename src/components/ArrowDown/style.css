@@ -5,6 +5,6 @@
   transition: all .5s ease-in-out;
 }
 
-.arrow-down[data-currentPlayer="2"] {
+.arrow-down[data-currentplayer="2"] {
   transform: translateX(216px);
 }
