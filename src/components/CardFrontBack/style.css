@@ -9,6 +9,10 @@
   transform-style: preserve-3d;
 }
 
+.card-flip.-point-done {
+  transform: rotateY(180deg);
+}
+
 .card-flip.-active {
   transform: rotateY(180deg);
 }

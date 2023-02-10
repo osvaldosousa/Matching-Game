@@ -1,43 +1,15 @@
-import './style.css';
-import { CardGame } from '../CardGame';
+import './style.css'
+import { CardGame } from '../CardGame'
 
-export function CardFrontBack(icon, altIcon) {
-  const flipCard = (event) => {
-    const $origin = event.target;
-    const cardToggle = $origin.closest('.card-flip');
-    cardToggle.classList.toggle('-active');
-  };
-
-  const hideCards = () => {
-    const cards = document.querySelector('.board-game');
-    const cardsActive = cards.querySelectorAll('.-active');
-
-    if(cardsActive.length === 2) {
-      
-      setTimeout(() => {
-        cardsActive.forEach(element => {
-          element.classList.remove('-active');
-        });
-        playerScore.scoreGame();
-      }, 1200);
-    }
-  };
-
-  window.cardsFlip = {};
-
-  window.cardsFlip.handleClick = (event) => {
-    flipCard(event)
-    hideCards();
-  };
-
+export function CardFrontBack(icon, altIcon, iconId) {
   return /* html */ `
-    <article class="card-flip" onClick="cardsFlip.handleClick(event)">
+    <article class="card-flip" data-id="${iconId}">
       <div class="card-front">
         ${CardGame()}
       </div>
       <div class="card-back">
-        ${CardGame(icon, altIcon)}
+        ${CardGame(icon, altIcon, iconId)}
       </div>
     </article>
-  `;
+  `
 }

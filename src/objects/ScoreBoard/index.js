@@ -12,7 +12,7 @@ export function ScoreBoard() {
       ${PlayerName('Player1')}
       ${PlayerScore()}
       ${vsPlayer()}
-      ${PlayerScore()}
+      ${PlayerScore("dois")}
       ${PlayerName('Player2')}
     </header>
   `
