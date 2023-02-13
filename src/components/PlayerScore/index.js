@@ -1,22 +1,26 @@
 import './style.css';
 
-export function PlayerScore(player = "um") {
-  window.playerScore = {};
+export function PlayerScore(player = 1) {
+  const addPointPlayer = (currentPlayer) => {
+    const playerAddPoint = currentPlayer - 1;
+    const barScore = Array.from(document.querySelectorAll('[data-player]'));
+    const squarePoint = barScore[playerAddPoint].querySelector('.score');
+      squarePoint.classList.remove('score');
+      squarePoint.classList.add('player-point');
+  };
 
+  window.playerScore = {};
   window.playerScore.pointPlayer = (point) => {
+    const $arrowDown = document.querySelector('[data-currentplayer]');
+    const currentPlayer = $arrowDown.getAttribute('data-currentplayer');
+
+    addPointPlayer(currentPlayer)
+
     point.forEach(element => {
       element.classList.add('-point-done')
       element.classList.remove('-active')
     });
   }
-
-  window.playerScore.swapPlayer = () => {
-    const $arrowDown = document.querySelector('.arrow-down');
-    const currentPlayer = $arrowDown.getAttribute('data-currentplayer');
-    setTimeout(() => {
-    $arrowDown.setAttribute('data-currentplayer', currentPlayer == 1 ? 2 : 1)
-    }, 1300);
-  };
 
   return /* html */ `
     <div 
