@@ -1,10 +1,6 @@
 import './style.css';
 
 export function ArrowDown(currentPlayer = 1) {
-  function swapPlayer() {
-    console.log("veio")
-  };
-
   return /* html */ `
     <img
       class="arrow-down"

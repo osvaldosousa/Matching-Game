@@ -15,3 +15,18 @@
   width: 14px;
   background-color: var(--color-old-silver);
 }
+
+.player-point {
+  height: 14px;
+  width: 14px;
+  background-color: green;
+}
+
+.bar-score.-point::nth-child(2) {
+  background-color: red;
+}
+
+.card-flip.-point-done {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
