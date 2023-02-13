@@ -5,8 +5,11 @@ export function PlayerScore(player = 1) {
     const playerAddPoint = currentPlayer - 1;
     const barScore = Array.from(document.querySelectorAll('[data-player]'));
     const squarePoint = barScore[playerAddPoint].querySelector('.score');
+
+    setTimeout(() => {
       squarePoint.classList.remove('score');
       squarePoint.classList.add('player-point');
+    }, 1300);
   };
 
   window.playerScore = {};
